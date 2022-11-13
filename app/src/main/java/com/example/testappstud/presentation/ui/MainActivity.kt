@@ -14,11 +14,14 @@ import com.example.testappstud.domain.track.TrackModel
 import com.example.testappstud.presentation.interfaces.MusicPlayerInterface
 import com.example.testappstud.services.music.MusicService
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), MusicPlayerInterface {
 
-    private var musicService: MusicService = MusicService()
+
+    var musicService: MusicService = MusicService()
+
+    /** UI View **/
     private lateinit var playerController: ConstraintLayout
     private lateinit var playerControl: ImageView
     private lateinit var playerTrackInfoTitle: TextView
@@ -41,10 +44,7 @@ class MainActivity : AppCompatActivity(), MusicPlayerInterface {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        if(supportFragmentManager.fragments.any { fragment -> fragment is PlaylistFragment }) {
-            supportFragmentManager.beginTransaction().remove(supportFragmentManager.fragments.last())
-        }
+        supportFragmentManager.popBackStackImmediate()
     }
 
     override fun start(track: TrackModel) {

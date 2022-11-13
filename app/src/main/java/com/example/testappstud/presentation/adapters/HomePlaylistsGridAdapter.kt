@@ -1,6 +1,7 @@
 package com.example.testappstud.presentation.adapters
 
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,14 +40,11 @@ class HomePlaylistsGridAdapter(
         }
 
         if (tempConvertView == null) {
-            // on below line we are passing the layout file
-            // which we have to inflate for each item of grid view.
             tempConvertView = layoutInflater!!.inflate(R.layout.playlist_item, null)
         }
 
         val playlistImageComponent: ImageView = tempConvertView!!.findViewById(R.id.playlistImage)
         Glide.with(context).load(playlistList[index].images.first().url).into(playlistImageComponent)
-        //playlistImageComponent.setImageURI(Uri.parse(playlistList[index]))
         return tempConvertView;
     }
 }

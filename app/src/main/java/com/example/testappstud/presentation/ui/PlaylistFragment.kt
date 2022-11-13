@@ -15,19 +15,24 @@ import com.bumptech.glide.Glide
 import com.example.testappstud.R
 import com.example.testappstud.domain.playlist.PlaylistModel
 import com.example.testappstud.domain.track.TrackModel
+import com.example.testappstud.other.NumberUtils
 import com.example.testappstud.presentation.adapters.PlaylistTrackListAdapter
 import com.example.testappstud.presentation.interfaces.MusicPlayerInterface
 import com.example.testappstud.presentation.interfaces.OnItemClickInterface
 import com.example.testappstud.presentation.viewModels.PlaylistFragmentViewModel
 import com.example.testappstud.presentation.viewModels.PlaylistFragmentViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
-class PlaylistFragment(private var playlistId: String) : Fragment() {
+class PlaylistFragment(private var playlistId: String) : Fragment(R.layout.fragment_playlist) {
+
+    /** View Model **/
     private val playlistFragmentViewModel: PlaylistFragmentViewModel by viewModels {
         PlaylistFragmentViewModelFactory(
             playlistId
         )
     }
 
+    /** UI View **/
     private lateinit var playlistInfoCardLayout: LinearLayout
     private lateinit var playlistImage: ImageView
     private lateinit var playlistTitle: TextView
@@ -37,6 +42,7 @@ class PlaylistFragment(private var playlistId: String) : Fragment() {
     private lateinit var playlistTrackList: RecyclerView
     private lateinit var playlistLoader: RelativeLayout
 
+    /** Music Control from Activity **/
     private lateinit var musicPlayerInterface: MusicPlayerInterface;
 
     override fun onAttach(context: Context) {
@@ -47,15 +53,6 @@ class PlaylistFragment(private var playlistId: String) : Fragment() {
             /** The activity does not implement the listener.  */
         }
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_playlist, container, false)
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViewObjects(view)
@@ -104,9 +101,9 @@ class PlaylistFragment(private var playlistId: String) : Fragment() {
         Glide.with(requireContext()).load(playlistModel.images.first().url).into(playlistImage)
         playlistTitle.text = playlistModel.name
         // TODO : l10n
-        playlistAuthor.text = playlistModel.owner.displayName
+        playlistAuthor.text = "${resources.getString(R.string.playlistAuthor)} ${playlistModel.owner.displayName}"
         playlistDescription.text = playlistModel.description
-        playlistFollowers.text = playlistModel.followers.total.toString()
+        playlistFollowers.text = "${playlistModel.followers.total?.let { NumberUtils.Companion.numberFormatter(it) }} ${resources.getString(R.string.playlistFollowers)}"
     }
 
 }

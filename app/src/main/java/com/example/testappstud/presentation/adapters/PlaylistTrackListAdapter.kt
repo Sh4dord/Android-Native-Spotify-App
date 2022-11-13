@@ -37,13 +37,17 @@ class PlaylistTrackListAdapter(
     override fun onBindViewHolder(holder: PlaylistTrackListAdapter.ViewHolder, position: Int) {
 
         val track = trackList[position]
+        holder.trackName.text = track.name
+        holder.trackAuthor.text = track.artists.first().name
+
+        val hasPreviewUrl = track.preview_url != null
+        if (!hasPreviewUrl) holder.trackItem.alpha = 0.3F
+
+        // I had on click event if preview_url == null
+        // I do the check when the music have to be launched
         holder.itemView.setOnClickListener(View.OnClickListener {
             onItemClick.onItemClick(track)
         })
-        val hasPreviewUrl = track.preview_url != null
-        holder.trackName.text = track.name
-        holder.trackAuthor.text = track.artists.first().name
-        if(!hasPreviewUrl) holder.trackItem.alpha = 0.5F
 
     }
 }

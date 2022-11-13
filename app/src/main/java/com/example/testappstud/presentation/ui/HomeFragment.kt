@@ -14,10 +14,13 @@ import com.example.testappstud.domain.playlistGroup.PlaylistGroupModel
 import com.example.testappstud.presentation.adapters.HomePlaylistsGridAdapter
 import com.example.testappstud.presentation.viewModels.HomeFragmentViewModel
 
+
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
+    /** View Model **/
     private val homeFragmentViewModel: HomeFragmentViewModel by viewModels()
 
+    /** UI View **/
     private lateinit var homeDailyMessageText: TextView
     private lateinit var homePlaylistsGrid: GridView
     private lateinit var homeLoader: RelativeLayout
@@ -53,6 +56,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun onPlaylistPressed(playlistId: String) {
         requireActivity().supportFragmentManager.beginTransaction()
-            .add(R.id.mainActivityFragment, PlaylistFragment(playlistId)).commit()
+            .add(R.id.mainActivityFragment, PlaylistFragment(playlistId)).addToBackStack(null).commit()
     }
 }
