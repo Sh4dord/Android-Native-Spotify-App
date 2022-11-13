@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/idHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".presentation.ui.MainActivity">
+
+    <include android:id="@+id/homeLoader"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
+             layout="@layout/loader"
+             android:visibility="visible"/>
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <TextView
+                android:id="@+id/homeDailyMessageText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:paddingTop="@dimen/padding16"
+                android:paddingBottom="@dimen/padding16"
+                android:paddingStart="@dimen/defaultHorizontalPadding"
+                android:paddingEnd="@dimen/defaultHorizontalPadding"
+                android:textColor="@color/white"
+        />
+        <GridView
+                android:id="@+id/homePlaylistsGrid"
+                android:layout_width="fill_parent"
+                android:scrollbars="none"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/defaultHorizontalPadding"
+                android:layout_marginEnd="@dimen/defaultHorizontalPadding"
+                android:numColumns="2"
+                android:gravity="center"
+                android:horizontalSpacing="@dimen/padding8"
+                android:verticalSpacing="@dimen/padding8"
+                android:layout_gravity="center"
+                android:stretchMode="columnWidth">
+
+        </GridView>
+    </LinearLayout>
+</RelativeLayout>

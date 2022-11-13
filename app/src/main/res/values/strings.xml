@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Test AppStud</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="playlistImageDescription">Playlist official image</string>
+    <string name="playlistAuthor">Playlist by </string>
+    <string name="playlistFollowers">followers</string>
 </resources>
