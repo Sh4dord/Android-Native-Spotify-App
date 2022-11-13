@@ -10,6 +10,7 @@ Here, I give some improvement I wanted to make at the end of the test :
 - Use Dependency injection to have only 1 repo instance, and a global MusicService to use by all activities (Because now I had to use fragment)
 - Manage HttpResponse with a seated class HttpResponse.Success / HttpResponse.Error
 - Manage l10n for some text
+- DO SOME TEST but I hadn't the time to do it... (and learn it)
 
 ## Summary
 Thanks for this test, 

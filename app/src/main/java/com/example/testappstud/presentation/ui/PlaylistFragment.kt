@@ -2,9 +2,7 @@ package com.example.testappstud.presentation.ui
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -21,7 +19,6 @@ import com.example.testappstud.presentation.interfaces.MusicPlayerInterface
 import com.example.testappstud.presentation.interfaces.OnItemClickInterface
 import com.example.testappstud.presentation.viewModels.PlaylistFragmentViewModel
 import com.example.testappstud.presentation.viewModels.PlaylistFragmentViewModelFactory
-import dagger.hilt.android.AndroidEntryPoint
 
 class PlaylistFragment(private var playlistId: String) : Fragment(R.layout.fragment_playlist) {
 
@@ -43,7 +40,7 @@ class PlaylistFragment(private var playlistId: String) : Fragment(R.layout.fragm
     private lateinit var playlistLoader: RelativeLayout
 
     /** Music Control from Activity **/
-    private lateinit var musicPlayerInterface: MusicPlayerInterface;
+    private lateinit var musicPlayerInterface: MusicPlayerInterface
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -103,7 +100,7 @@ class PlaylistFragment(private var playlistId: String) : Fragment(R.layout.fragm
         // TODO : l10n
         playlistAuthor.text = "${resources.getString(R.string.playlistAuthor)} ${playlistModel.owner.displayName}"
         playlistDescription.text = playlistModel.description
-        playlistFollowers.text = "${playlistModel.followers.total?.let { NumberUtils.Companion.numberFormatter(it) }} ${resources.getString(R.string.playlistFollowers)}"
+        playlistFollowers.text = "${playlistModel.followers.total?.let { NumberUtils.numberFormatter(it) }} ${resources.getString(R.string.playlistFollowers)}"
     }
 
 }

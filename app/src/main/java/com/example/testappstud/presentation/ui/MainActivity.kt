@@ -7,14 +7,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.example.testappstud.R
 import com.example.testappstud.domain.track.TrackModel
 import com.example.testappstud.presentation.interfaces.MusicPlayerInterface
 import com.example.testappstud.services.music.MusicService
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), MusicPlayerInterface {
 

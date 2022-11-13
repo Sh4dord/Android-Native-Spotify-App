@@ -3,7 +3,7 @@ package com.example.testappstud.services.music
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 
-class MusicService() {
+class MusicService {
     var mMediaPlayer: MediaPlayer? = null
 
     private fun initPlayerWithNewTrack(url: String) {

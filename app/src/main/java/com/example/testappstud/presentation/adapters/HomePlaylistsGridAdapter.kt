@@ -1,7 +1,6 @@
 package com.example.testappstud.presentation.adapters
 
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,7 @@ class HomePlaylistsGridAdapter(
 
 
     override fun getCount(): Int {
-        return playlistList.size;
+        return playlistList.size
     }
 
     override fun getItem(index: Int): Any {
@@ -45,6 +44,6 @@ class HomePlaylistsGridAdapter(
 
         val playlistImageComponent: ImageView = tempConvertView!!.findViewById(R.id.playlistImage)
         Glide.with(context).load(playlistList[index].images.first().url).into(playlistImageComponent)
-        return tempConvertView;
+        return tempConvertView
     }
 }

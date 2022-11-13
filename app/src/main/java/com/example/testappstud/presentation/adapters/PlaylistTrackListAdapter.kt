@@ -17,9 +17,9 @@ class PlaylistTrackListAdapter(
     RecyclerView.Adapter<PlaylistTrackListAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val trackItem = itemView.findViewById<LinearLayout>(R.id.trackItem)
-        val trackName = itemView.findViewById<TextView>(R.id.trackName)
-        val trackAuthor = itemView.findViewById<TextView>(R.id.trackAuthor)
+        val trackItem: LinearLayout = itemView.findViewById<LinearLayout>(R.id.trackItem)
+        val trackName: TextView = itemView.findViewById<TextView>(R.id.trackName)
+        val trackAuthor: TextView = itemView.findViewById<TextView>(R.id.trackAuthor)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -45,9 +45,9 @@ class PlaylistTrackListAdapter(
 
         // I had on click event if preview_url == null
         // I do the check when the music have to be launched
-        holder.itemView.setOnClickListener(View.OnClickListener {
+        holder.itemView.setOnClickListener {
             onItemClick.onItemClick(track)
-        })
+        }
 
     }
 }
